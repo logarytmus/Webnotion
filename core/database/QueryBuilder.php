@@ -10,10 +10,11 @@ class QueryBuilder
     $this->pdo = $pdo;
   }
 
-  public function selectAll($table)
+  public function selectUser($table, $email)
   {
-    $statement = $this->pdo->prepare("select * from {$table}");
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_CLASS);
+    $statement = $this->pdo->prepare("select * from {$table} where email=?");
+    $statement->execute([$email]);
+    return $statement->fetchAll();
   }
+
 }

@@ -1,0 +1,11 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+body{
+	background-color: #1C3D50;
+}
+button{
+	background-color: #01CD6C;
+	color: white;
+}
+.formx{
+	backgound-color: #F4F5F7;
+}
