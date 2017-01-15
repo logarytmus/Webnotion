@@ -23,6 +23,7 @@ class UsersController
    if($query[0]['password'] === $password){
     $data['name'] = $query[0]['name'];
     $data['privilege'] = $query[0]['privilege'];
+
     if(isset($remember)){
     setcookie('email', $email, time() + 60*60*24);
     setcookie('password', $password, time() + 60*60*24);
@@ -44,7 +45,7 @@ class UsersController
         }
     
 
-    return view('dashboard');
+    return view('dashboard', compact('data'));
   }
 
   else{
