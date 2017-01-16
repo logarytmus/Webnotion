@@ -19,19 +19,28 @@ class UsersController
       }
 
    $query = App::get('database')->selectUser('users', $email);
-
+    /*  NAJLEPSIA VOLBA: V pripade zahashovaneho hesla by som overil takto
+    if(password_verify('password', $storedpassword)){ 
+          echo "success";
+    }
+    else{
+    echo "try again";
+    }
+ */
+    var_dump($query);
+    die();
    if($query[0]['password'] === $password){
-    $data['name'] = $query[0]['name'];
-    $data['privilege'] = $query[0]['privilege'];
+    session_start();
+    $_SESSION['name'] = $query[0]['name'];
+    $_SESSION['role'] = $query[0]['privilege'];
 
     if(isset($remember)){
     setcookie('email', $email, time() + 60*60*24);
     setcookie('password', $password, time() + 60*60*24);
   }
-  session_start();
-  $_SESSION["email"] = $email;
+  $_SESSION['email'] = $email;
 
-    if(isset($_SESSION["limit"])) {
+    if(isset($_SESSION['limit'])) {
       $current_time = time() - $_SESSION["limit"];
         if($current_time > 20){
           session_unset();
@@ -65,5 +74,6 @@ class UsersController
   }
     redirect('');
   }
+ 
 
 }

@@ -1,21 +1,24 @@
 <?php
-
 namespace App\Controllers;
 
 class PagesController
 {
   public function home()
   {
-     if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
+    if(isset($_COOKIE['email']) && isset($_COOKIE['password'])){
     redirect('dashboard');
-  }
-
-
+    exit();
+    }
    return view('login');
   }
 
   public function logged()
   {
+    session_start();
+    if((!isset($_SESSION['email'])) && ((!isset($_COOKIE['email'])) && (!isset($_COOKIE['password'])))){
+    redirect('');
+    exit();
+}
   
     if(isset($_SESSION["limit"])) {
       $current_time = time() - $_SESSION["limit"];
@@ -33,6 +36,4 @@ class PagesController
       return view('dashboard');
       
   }
-
-
 }

@@ -2,10 +2,25 @@
 body{
 	background-color: #1C3D50;
 }
-button{
+button {
 	background-color: #01CD6C;
 	color: white;
 }
-.formx{
+.formx  {
 	backgound-color: #F4F5F7;
+}
+
+.btn-xlarge {
+   padding: 15px 15px;
+   margin: 0px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+.form-xlarge {
+ 	padding: 25px 15px;
+ 	border: none;
+ 	margin: 0px;
 }

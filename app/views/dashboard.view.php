@@ -9,8 +9,10 @@
 <div class="container">
 <div class="row">
 <div style="color: white; float:none" class="center-block text-center col-md-4">
-<b>You are logged in as: </b><?= $data['name']; ?><br>
-<b>Privileges: </b><?= $data['privilege']; ?>
+
+<b>You are logged in as: </b> <?= $data['name']; ?><br>
+<b>Privileges: </b> <?= $data['privilege']; ?><br>
+
 </div>
 </div>
 </div>
